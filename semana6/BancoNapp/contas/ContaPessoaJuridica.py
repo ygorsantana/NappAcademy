@@ -20,18 +20,15 @@ class ContaPessoaJuridica(Conta):
     def saque(self, valor):
         if not isinstance(valor, (int, float)):
             raise TypeError('O valor do saque precisa ser numérico')
-        saque = valor
-        if self.saldo < valor:
-            _valor = valor - self.saldo
-            if self.limite < valor:
-                raise ValueError('Valor do saque supera seu saldo e seu limite')
-            self.limite -= _valor
-            self.saldo -= valor
-        else:
-            self.saldo -= valor
+        if self.limite < valor:
+            raise ValueError('Valor do saque supera seu saldo e seu limite')
 
+        if self.saldo < valor:
+            self.limite -= valor - self.saldo
+
+        self.saldo -= valor
         self.extrato.append(('S', valor))
-        return saque
+        return valor
     
     def get_extrato(self):
         return self.extrato
