@@ -1,0 +1,3 @@
+### Desafio 8
+
+Na parte do Google SSI, por ter sido feito como um MVP, ficou bem travado para apenas um cliente, usando algumas ideias do padrão de projeto aprendido `(Bridge e Strategy)`, seria possível definir a classe principal como apenas fluxo, usando uma classe herdada dependendo do cliente de modo que o jeito que vá ser obtido o dado seja customizado para cada Cliente, tornando isso flexível, poderia até padronizar os principais meios de obtenção de arquivo como puxar do `FTP`, `sFTP`, `Email`, entre outros.
